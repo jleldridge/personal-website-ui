@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './NavMenu.css';
 
 class NavMenu extends Component {
     constructor(props) {
@@ -9,10 +10,10 @@ class NavMenu extends Component {
 
     render() {
         const listItems = this.state.items.map((item) => 
-            <li><Link to={item.href}>{item.name}</Link></li>
+            <li><NavLink exact to={item.href} className="Navmenu-item" activeClassName="Navmenu-item-active">{item.name}</NavLink></li>
         );
         return (
-            <ul className="Horizontal-menu">
+            <ul className="Navmenu">
                 {listItems}
             </ul>
         );

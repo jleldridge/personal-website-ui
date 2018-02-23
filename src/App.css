@@ -24,39 +24,16 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.0em;
   float: left;
-  margin-left: 20px;
-  margin-bottom: 0px;
+  margin: auto;
   padding: 0px;
+  line-height: 50px;
 }
 
 .App-body {
   background-color: white;
-  margin-top: 0px;
-}
-
-.Horizontal-menu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #222;
-  width: 100%;
-  height: 40px;
-}
-
-.Horizontal-menu li {
-  padding-left: 10px;
-  padding-right: 10px;
-  float: left;
-}
-
-.Horizontal-menu li:hover {
-  background-color: #adddff;
-}
-
-.Horizontal-menu li a {
-  background-color: transparent;
+  padding: 20px;
 }
 
 @keyframes App-logo-spin {
