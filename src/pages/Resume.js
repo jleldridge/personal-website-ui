@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import "./Resume.css";
 
 class Resume extends Component {
     render() {
         return (
-            <div className="Resume">
+            <div>
                 <h3>Skill Highlights</h3>
                 <div className="Dividing-line">▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔</div>
                 <div className="Resume-list">

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import logo from './logo.svg';
 import myPicture from './me.jpg';
-import './App.css';
 
 import NavMenu from './pages/NavMenu.js'
 import Resume from './pages/Resume.js';
@@ -19,17 +18,19 @@ class App extends Component {
     ];
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={myPicture} className="My-header-picture" alt="logo" />
-          <h1 className="App-title">Jeffrey Eldridge</h1>
-          <NavMenu items={menuItems} />
-        </header>
-        <div className="App-body">
+      <div>
+        <nav className="navbar navbar-inverse">
+          <div className="container">
+            {/* <img src={myPicture} className="My-header-picture" alt="logo" /> */}
+            <div className="navbar-brand">Jeffrey Eldridge</div>
+            <NavMenu items={menuItems} />
+          </div>
+        </nav>
+        <div className="container">
           <Route exact path="/" component={Home}/>
-          <Route path="/resume" component={Resume}/>
-          <Route path="/projects" component={Projects}/>
-          <Route path="/github" component={() => {return <div>Hello Github!</div>}} />
+          <Route exact path="/resume" component={Resume}/>
+          <Route exact path="/projects" component={Projects}/>
+          <Route exact path="/github" component={() => {return <div>Hello Github!</div>}} />
         </div>
       </div>
     );
