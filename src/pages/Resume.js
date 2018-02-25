@@ -5,9 +5,8 @@ class Resume extends Component {
         return (
             <div>
                 <h3>Skill Highlights</h3>
-                <div className="Dividing-line">▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔</div>
-                <div className="Resume-list">
-                    <ul className="Two-column-list">
+                <div>
+                    <ul>
                         <li>Fluent in C#, XAML, WPF, .NET Framework</li>
                         <li>Familiar with UWP, HTML, JavaScript, Java</li>
                         <li>MVVM</li>
@@ -18,7 +17,6 @@ class Resume extends Component {
                     </ul>
                 </div>
                 <h3>Experience</h3>
-                <div className="Dividing-line">▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔</div>
                 <h5>January 2014 - PRESENT</h5>
                 <h4>Software Developer - <span>Datawatch Corporation, Greensboro, NC</span></h4>
                 <ul>
@@ -40,12 +38,10 @@ class Resume extends Component {
 
 
                 <h3>Education</h3>
-                <div className="Dividing-line">▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔</div>
                 <h5>August 2008 - December 2013</h5>
                 <ul><li><h4>BS in Computer Science - </h4><span>University of North Carolina Greensboro, Greensboro, NC</span></li></ul>
 
                 <h3>Awards</h3>
-                <div className="Dividing-line">▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔</div>
                 <ul>
                     <li>Datawatch President’s Award at the FY2016 Datawatch Kickoff.</li>
                     <li>Outstanding Computer Science Undergraduate Student at Computer Science graduation ceremony in Spring 2014.</li>

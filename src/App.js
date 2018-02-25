@@ -21,7 +21,7 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-inverse">
           <div className="container">
-            {/* <img src={myPicture} className="My-header-picture" alt="logo" /> */}
+            <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
             <div className="navbar-brand">Jeffrey Eldridge</div>
             <NavMenu items={menuItems} />
           </div>
