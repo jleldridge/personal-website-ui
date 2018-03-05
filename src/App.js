@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import logo from './logo.svg';
-import myPicture from './me.jpg';
+import myPicture from './assets/me.jpg';
 
 import NavMenu from './pages/NavMenu.js'
 import Resume from './pages/Resume.js';
