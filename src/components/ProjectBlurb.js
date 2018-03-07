@@ -22,12 +22,12 @@ class ProjectBlurb extends Component {
         ) : "";
 
         const links = this.state.links ? this.state.links.map((link, index) =>
-            <a key={index} style={{margin: '5px'}} className="btn btn-primary" href={link.href} target="_blank">{link.name}</a>
+            <a key={index} style={{marginRight: '5px'}} className="badge badge-primary" href={link.href} target="_blank">{link.name}</a>
         ) : "";
 
         return (
-            <div className="container">
-                <h3>{this.state.projectName}</h3>
+            <div>
+                <h4>{this.state.projectName}</h4>
                 <div>{technologies}</div>
                 <div>{links}</div>
                 <div>{images}</div>

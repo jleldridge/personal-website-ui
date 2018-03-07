@@ -8,20 +8,23 @@ import scrawlerPicture from '../assets/scrawler-preview-picture.png';
 class Projects extends Component {
     render() {
         return (
-            <div className="container">
+            <div>
                 
                 <ProjectBlurb 
                     projectName="Datawatch Monarch" 
                     technologies={["C#", "WPF", ".NET"]}
                     links={[{name:"Product website", href:"https://www.datawatch.com/our-platform/monarch/"}]}>
-                    tbd
+                    Designed and developed Data Prep Studio, Datawatch’s self service data preparation product.
+                    Designed and developed UX for PDF Table Extractor, a product focused on automatic table discovery in PDF documents.
+                    Helped develop US Patent: 9703766 which protects the algorithms that power PDF Table Extractor.
                 </ProjectBlurb>
 
                 <ProjectBlurb 
                     projectName="Datawatch Panopticon" 
                     technologies={["C#", "WPF", ".NET", "Java"]}
                     links={[{name:"Product website", href:"http://www.panopticon.com/"}]}>
-                    tbd
+                    Worked on-site with Panopticon Software in Stockholm, Sweden following their acquisition by Datawatch to bring Panopticon’s data visualization software into the Datawatch software suite.
+                    Developed data connectors that allow Datawatch software to connect to IBM Cognos TM1, IBM Cloudant, and streaming data sources.
                 </ProjectBlurb>
 
                 <ProjectBlurb
