@@ -14,12 +14,15 @@ function hashChange(e) {
   e.preventDefault();
   var hash = window.location.hash;
   if (!hash) hash = "#home";
+  var offset = $(hash).offset();
 
-  $('html, body').animate({
-        scrollTop: $(hash).offset().top
+  if (offset) {
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
     }, 
     300, 
     function(){});
+  }
 }
 window.onhashchange = hashChange;
 

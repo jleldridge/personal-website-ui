@@ -13,6 +13,7 @@ class Skills extends Component {
                                 <li>C#</li>
                                 <li>XAML</li>
                                 <li>JavaScript</li>
+                                <li>HTML</li>
                                 <li>Java</li>
                             </ul>
                         </div>
@@ -32,6 +33,8 @@ class Skills extends Component {
                             <ul className="list-unstyled mt-3">
                                 <li>Visual Studio</li>
                                 <li>IntelliJ</li>
+                                <li>NodeJS</li>
+                                <li>NPM</li>
                                 <li>Git</li>
                                 <li>Mercurial</li>
                             </ul>

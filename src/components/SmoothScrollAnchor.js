@@ -21,14 +21,16 @@ class SmoothScrollAnchor extends Component {
     handleClick(e) {
         e.preventDefault();
         var hash = this.state.href;
-
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 
-        300, 
-        function(){
-            window.location.hash = hash;
-        });
+        var offset = $(hash).offset();
+        if (offset) {
+            $('html, body').animate({
+                scrollTop: offset.top
+            }, 
+            300, 
+            function(){
+                window.location.hash = hash;
+            });
+        }
     }
 }
 
