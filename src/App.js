@@ -9,8 +9,8 @@ import Education from './pages/Education';
 class App extends Component {
   render() {
     return (
-      <div>
-        <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div className="bg-dark">
+        <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark fixed-top" style={{backgroundColor: "#563D7C"}}>
           <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
           <div className="navbar-brand">Jeffrey Eldridge</div>
 
@@ -28,7 +28,7 @@ class App extends Component {
           </div>
 
         </nav>
-        <div className="container" style={{paddingTop:"75px"}}>
+        <div className="container bg-dark text-white" style={{paddingTop:"75px"}}>
           <div style={{marginBottom: "400px", paddingTop: "75px"}} id="home" className="container-fluid"><Home /></div>
           <div style={{marginBottom: "400px", paddingTop: "75px"}} id="experience" className="container-fluid"><Experience /></div>
           <div style={{marginBottom: "400px", paddingTop: "75px"}} id="education" className="container-fluid"><Education /></div>

@@ -9,7 +9,8 @@ class Projects extends Component {
     render() {
         return (
             <div>
-                
+                <h2 className="text-info">Projects</h2>
+
                 <ProjectBlurb 
                     projectName="Datawatch Monarch" 
                     technologies={["C#", "WPF", ".NET"]}
