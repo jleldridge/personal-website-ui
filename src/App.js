@@ -11,16 +11,22 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
           <div className="navbar-brand">Jeffrey Eldridge</div>
 
-          <Scrollspy className="navbar-nav" items={['home', 'experience', 'education', 'projects']} currentClassName="active">
-            <a className="nav-item nav-link" href="#home">Home</a>
-            <a className="nav-item nav-link" href="#experience">Experience</a>
-            <a className="nav-item nav-link" href="#education">Education</a>
-            <a className="nav-item nav-link" href="#projects">Projects</a>
-          </Scrollspy>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div id="navlist" className="collapse navbar-collapse">
+            <Scrollspy className="navbar-nav" items={['home', 'experience', 'education', 'projects']} currentClassName="active">
+              <a className="nav-item nav-link" href="#home">Home</a>
+              <a className="nav-item nav-link" href="#experience">Experience</a>
+              <a className="nav-item nav-link" href="#education">Education</a>
+              <a className="nav-item nav-link" href="#projects">Projects</a>
+            </Scrollspy>
+          </div>
 
         </nav>
         <div className="container" style={{paddingTop:"75px"}}>
