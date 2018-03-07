@@ -6,14 +6,15 @@ class SmoothScrollAnchor extends Component {
         super(props);
         this.state = {
             href: props.href,
-            children: props.children
+            children: props.children,
+            className: props.className
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
         return (
-            <a onClick={this.handleClick} className="nav-item nav-link" href={this.state.href}>{this.state.children}</a>
+            <a onClick={this.handleClick} className={this.state.className} href={this.state.href}>{this.state.children}</a>
         );
     }
 
@@ -22,9 +23,11 @@ class SmoothScrollAnchor extends Component {
         var hash = this.state.href;
 
         $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 300, function(){ 
-                window.location.hash = hash;
+            scrollTop: $(hash).offset().top
+        }, 
+        300, 
+        function(){
+            window.location.hash = hash;
         });
     }
 }

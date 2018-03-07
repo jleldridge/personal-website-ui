@@ -8,7 +8,9 @@ class ProjectBlurb extends Component {
             technologies: props.technologies,
             images: props.images,
             links: props.links,
-            summary: props.children
+            summary: props.children,
+            id: props.id,
+            style: props.style
         };
     }
 
@@ -26,7 +28,7 @@ class ProjectBlurb extends Component {
         ) : "";
 
         return (
-            <div>
+            <div id={this.state.id} style={this.state.style}>
                 <h4>{this.state.projectName}</h4>
                 <div>{technologies}</div>
                 <div>{links}</div>

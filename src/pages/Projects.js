@@ -9,12 +9,14 @@ class Projects extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-info">Projects</h2>
+                <h2 className="text-info" style={{marginBottom: "-50px"}}>Projects</h2>
 
                 <ProjectBlurb 
+                    id="monarch"
+                    style={{paddingTop: "75px"}}
                     projectName="Datawatch Monarch" 
                     technologies={["C#", "WPF", ".NET"]}
-                    links={[{name:"Product website", href:"https://www.datawatch.com/our-platform/monarch/"}]}>
+                    links={[{name:"Visit product website", href:"https://www.datawatch.com/our-platform/monarch/"}]}>
                     Designed and developed Data Prep Studio, Datawatch’s self service data preparation product.
                     Designed and developed UX for PDF Table Extractor, a product focused on automatic table discovery in PDF documents.
                     Helped develop US Patent: 9703766 which protects the algorithms that power PDF Table Extractor.
@@ -23,7 +25,7 @@ class Projects extends Component {
                 <ProjectBlurb 
                     projectName="Datawatch Panopticon" 
                     technologies={["C#", "WPF", ".NET", "Java"]}
-                    links={[{name:"Product website", href:"http://www.panopticon.com/"}]}>
+                    links={[{name:"Visit product website", href:"http://www.panopticon.com/"}]}>
                     Worked on-site with Panopticon Software in Stockholm, Sweden following their acquisition by Datawatch to bring Panopticon’s data visualization software into the Datawatch software suite.
                     Developed data connectors that allow Datawatch software to connect to IBM Cognos TM1, IBM Cloudant, and streaming data sources.
                 </ProjectBlurb>
@@ -31,7 +33,7 @@ class Projects extends Component {
                 <ProjectBlurb
                     projectName="Scrawler"
                     technologies={["C#", "UWP", ".NET"]}
-                    links={[{name:"Source", href:"https://github.com/jleldridge/Scrawler"}]}
+                    links={[{name:"View source code", href:"https://github.com/jleldridge/Scrawler"}]}
                     images={[scrawlerPicture]}>
                     Scrawler was a note taking / drawing app I designed primarily for the Microsoft Surface line of tablets.
                     It was mostly intended for personal use, as I was dissatisfied with many of the free drawing apps offered for the Surface.
@@ -42,7 +44,7 @@ class Projects extends Component {
                 <ProjectBlurb
                     projectName="Amoeboid"
                     technologies={["JavaScript"]}
-                    links={[{name:"Play", href:"https://jleldridge.github.io/Amoeboid/"}, {name:"Source", href:"https://github.com/jleldridge/Amoeboid"}]}
+                    links={[{name:"Play", href:"https://jleldridge.github.io/Amoeboid/"}, {name:"View source code", href:"https://github.com/jleldridge/Amoeboid"}]}
                     images={[amoeboidPicture]}>
                     Amoeboid is the working name of a simple browser game that I created using vanilla javascript.
                     The game was inspired by an old flash game I used to play in school called Hungry Space.
@@ -55,7 +57,7 @@ class Projects extends Component {
                 <ProjectBlurb 
                     projectName="Personal Website" 
                     technologies={["JavaScript", "HTML", "ReactJS", "Bootstrap"]}
-                    links={[{name:"Source", href:"https://github.com/jleldridge/website-dev"}]}>
+                    links={[{name:"View source code", href:"https://github.com/jleldridge/website-dev"}]}>
                 </ProjectBlurb>
 
             </div>

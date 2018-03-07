@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SmoothScrollAnchor from '../components/SmoothScrollAnchor';
 
 class Experience extends Component {
     render() {
@@ -8,6 +9,10 @@ class Experience extends Component {
                 <div className="container">
                     <p className="text-secondary mb-0">January 2014 - PRESENT</p>
                     <p>Software Developer - <span className="font-italic">Datawatch Corporation</span></p>
+                    <p>
+                        Helped design and develop <SmoothScrollAnchor href="#monarch">Monarch Complete </SmoothScrollAnchor>
+                        using C#, XAML, WPF, and .NET.
+                    </p>
                 </div>
                 <div className="container mt-3">
                     <p className="text-secondary mb-0">August 2013 - December 2013</p>
