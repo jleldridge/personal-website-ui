@@ -1,36 +1,25 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import logo from './logo.svg';
-import myPicture from './assets/me.jpg';
+import Scrollspy from 'react-scrollspy';
 
-import NavMenu from './pages/NavMenu.js'
-import Resume from './pages/Resume.js';
+import myPicture from './assets/me.jpg';
 import Projects from './pages/Projects.js';
 import Home from './pages/Home.js';
 
 class App extends Component {
   render() {
-    var menuItems = [
-      { name: 'Home', href: '/' },
-      { name: 'Resume', href: '/resume' },
-      { name: 'Projects', href: '/projects' },
-      { name: 'GitHub', href: '/github' }
-    ];
-
     return (
       <div>
-        <nav className="navbar navbar-inverse">
-          <div className="container">
-            <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
-            <div className="navbar-brand">Jeffrey Eldridge</div>
-            <NavMenu items={menuItems} />
-          </div>
+        <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
+          <div className="navbar-brand">Jeffrey Eldridge</div>
+          <Scrollspy className="navbar-nav" items={['home', 'projects']} currentClassName="active">
+            <a className="nav-item nav-link" href="#home">Home</a>
+            <a className="nav-item nav-link" href="#projects">Projects</a>
+          </Scrollspy>
         </nav>
-        <div className="container">
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/resume" component={Resume}/>
-          <Route exact path="/projects" component={Projects}/>
-          <Route exact path="/github" component={() => {return <div>Hello Github!</div>}} />
+        <div className="container" style={{paddingTop:"75px"}}>
+          <div id="home" className="container-fluid"><Home /></div>
+          <div id="projects" className="container-fluid"><Projects /></div>
         </div>
       </div>
     );

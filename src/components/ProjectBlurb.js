@@ -13,16 +13,16 @@ class ProjectBlurb extends Component {
     }
 
     render() {
-        const technologies = this.state.technologies ? this.state.technologies.map((tech) => 
-            <p className="badge badge-secondary" style={{margin: '5px 5px 5px 0px'}}>{tech}</p>
+        const technologies = this.state.technologies ? this.state.technologies.map((tech, index) => 
+            <p key={index} className="badge badge-secondary" style={{margin: '5px 5px 5px 0px'}}>{tech}</p>
         ) : "";
 
-        const images = this.state.images ? this.state.images.map((image) =>
-            <img style={{height:'300px', margin:'5px', display: 'block'}} src={image} alt="logo" />
+        const images = this.state.images ? this.state.images.map((image, index) =>
+            <img key={index} style={{height:'300px', margin:'5px', display: 'block'}} src={image} alt="logo" />
         ) : "";
 
-        const links = this.state.links ? this.state.links.map((link) =>
-            <a style={{margin: '5px'}} className="btn btn-primary" href={link.href} target="_blank">{link.name}</a>
+        const links = this.state.links ? this.state.links.map((link, index) =>
+            <a key={index} style={{margin: '5px'}} className="btn btn-primary" href={link.href} target="_blank">{link.name}</a>
         ) : "";
 
         return (
