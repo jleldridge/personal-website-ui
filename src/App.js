@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import SmoothScrollAnchor from './components/SmoothScrollAnchor';
+
 import myPicture from './assets/me.jpg';
 import Projects from './pages/Projects';
 import Home from './pages/Home';
@@ -20,10 +22,10 @@ class App extends Component {
 
           <div id="navlist" className="collapse navbar-collapse">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" href="#home">Home</a>
-              <a className="nav-item nav-link" href="#experience">Experience</a>
-              <a className="nav-item nav-link" href="#education">Education</a>
-              <a className="nav-item nav-link" href="#projects">Projects</a>
+              <SmoothScrollAnchor href="#home">Home</SmoothScrollAnchor>
+              <SmoothScrollAnchor href="#experience">Experience</SmoothScrollAnchor>
+              <SmoothScrollAnchor href="#education">Education</SmoothScrollAnchor>
+              <SmoothScrollAnchor href="#projects">Projects</SmoothScrollAnchor>
             </div>
           </div>
 
