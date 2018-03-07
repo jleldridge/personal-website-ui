@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Scrollspy from 'react-scrollspy';
 
 import myPicture from './assets/me.jpg';
 import Projects from './pages/Projects';
@@ -11,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
           <div className="navbar-brand">Jeffrey Eldridge</div>
 
@@ -20,12 +19,12 @@ class App extends Component {
           </button>
 
           <div id="navlist" className="collapse navbar-collapse">
-            <Scrollspy className="navbar-nav" items={['home', 'experience', 'education', 'projects']} currentClassName="active">
+            <div className="navbar-nav">
               <a className="nav-item nav-link" href="#home">Home</a>
               <a className="nav-item nav-link" href="#experience">Experience</a>
               <a className="nav-item nav-link" href="#education">Education</a>
               <a className="nav-item nav-link" href="#projects">Projects</a>
-            </Scrollspy>
+            </div>
           </div>
 
         </nav>
