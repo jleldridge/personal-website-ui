@@ -13,6 +13,8 @@ class Home extends Component {
                     also used Python, Java, C, and C++ to some degree for either school, work,
                     or personal projects.
                 </p>
+                <p className="lead mt-4">Contact: <a href="mailto:jleldridge27@gmail.com">jleldridge27@gmail.com</a></p>
+                <a class="btn btn-primary" href="https://www.linkedin.com/in/jeffrey-eldridge-547aa3b3/" target="_blank">LinkedIn Profile</a>
             </div>
         );
     }

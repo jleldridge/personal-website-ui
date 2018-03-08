@@ -8,7 +8,7 @@ class ProjectBlurb extends Component {
             technologies: props.technologies,
             images: props.images,
             links: props.links,
-            summary: props.children,
+            children: props.children,
             id: props.id,
             style: props.style
         };
@@ -27,15 +27,35 @@ class ProjectBlurb extends Component {
             <a key={index} style={{marginRight: '5px'}} className="badge badge-primary" href={link.href} target="_blank">{link.name}</a>
         ) : "";
 
-        return (
-            <div id={this.state.id} style={this.state.style}>
-                <h4>{this.state.projectName}</h4>
-                <div>{technologies}</div>
-                <div>{links}</div>
-                <div>{images}</div>
-                <p>{this.state.summary}</p>
-            </div>
-        );
+        if (this.state.images) {
+            return (
+                <div className="container" id={this.state.id} style={this.state.style}>
+                    <h4>{this.state.projectName}</h4>
+                    <div>{technologies}</div>
+                    <div>{links}</div>
+                    <div className="row">
+                        <div className="col-sm">
+                            <div>{images}</div>
+                        </div>
+                        <div className="col-sm">
+                            {this.state.children}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else {
+            return (
+                <div className="container" id={this.state.id} style={this.state.style}>
+                    <h4>{this.state.projectName}</h4>
+                    <div>{technologies}</div>
+                    <div>{links}</div>
+                    <div>{images}</div>
+                    <div>{this.state.children}</div>
+                </div>
+            );
+        }
+
     }
 }
 

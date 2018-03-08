@@ -11,35 +11,42 @@ class Projects extends Component {
             <div>
                 <h2 className="text-info" style={{marginBottom: "-50px"}}>Projects</h2>
                 <div className="container">
-                    <ProjectBlurb 
-                        id="monarch"
-                        projectName="Datawatch Monarch" 
-                        style={{paddingTop: "75px"}}
-                        technologies={["C#", "WPF", ".NET"]}
-                        links={[{name:"Visit product website", href:"https://www.datawatch.com/our-platform/monarch/"}]}>
-                        <p className="mt-2">
-                            Monarch is Datawatch's premier self-service data preparation tool targeting Windows desktops.
-                            While working at Datawatch, I have designed and developed UI workflows and backend code for
-                            data extraction methods, data connectors, data transforms, joins, and more. I have also helped
-                            to integrate Monarch with Datawatch's <span className="font-italics">Monarch Swarm</span>
-                            server / browser based product.
-                        </p>
-                    </ProjectBlurb>
 
-                    <ProjectBlurb 
-                        id="panopticon"
-                        projectName="Datawatch Panopticon" 
-                        style={{paddingTop: "75px"}}
-                        technologies={["C#", "WPF", ".NET", "Java"]}
-                        links={[{name:"Visit product website", href:"http://www.panopticon.com/"}]}>
-                        <p className="mt-2">
-                            Following their acquisition by Datawatch, I worked on-site with Panopticon Software in Stockholm
-                            to bring Panopticon’s data visualization software into the Datawatch software suite. During this time
-                            I was primarily focused on improving the software's UI, but I also created UI and backend code for
-                            data connectors that allow Datawatch software to connect to IBM Cognos TM1, IBM Cloudant, and streaming data sources.
-                            I primarily used C# and XAML, but there were occasions where I worked on backend code written in Java.
-                        </p>
-                    </ProjectBlurb>
+                    <div className="row">
+                        <div className="col-sm">
+                            <ProjectBlurb 
+                                id="monarch"
+                                projectName="Datawatch Monarch" 
+                                style={{paddingTop: "75px"}}
+                                technologies={["C#", "WPF", ".NET"]}
+                                links={[{name:"Visit product website", href:"https://www.datawatch.com/our-platform/monarch/"}]}>
+                                <p className="mt-2">
+                                    Monarch is Datawatch's premier self-service data preparation tool targeting Windows desktops.
+                                    While working at Datawatch, I have designed and developed UI workflows and backend code for
+                                    data extraction methods, data connectors, data transforms, joins, and more. I have also helped
+                                    to integrate Monarch with Datawatch's <span className="font-italics">Monarch Swarm </span>
+                                    server / browser based product.
+                                </p>
+                            </ProjectBlurb>
+                        </div>
+
+                        <div className="col-sm">
+                            <ProjectBlurb 
+                                id="panopticon"
+                                projectName="Datawatch Panopticon" 
+                                style={{paddingTop: "75px"}}
+                                technologies={["C#", "WPF", ".NET", "Java"]}
+                                links={[{name:"Visit product website", href:"http://www.panopticon.com/"}]}>
+                                <p className="mt-2">
+                                    Following their acquisition by Datawatch, I worked on-site with Panopticon Software in Stockholm
+                                    to bring Panopticon’s data visualization software into the Datawatch software suite. During this time
+                                    I was primarily focused on improving the software's UI, but I also created UI and backend code for
+                                    data connectors that allow Datawatch software to connect to IBM Cognos TM1, IBM Cloudant, and streaming data sources.
+                                    I primarily used C# and XAML, but there were occasions where I worked on backend code written in Java.
+                                </p>
+                            </ProjectBlurb>
+                        </div>
+                    </div>
 
                     <ProjectBlurb
                         id="scrawler"
@@ -81,10 +88,10 @@ class Projects extends Component {
                         style={{paddingTop: "75px"}}
                         technologies={["JavaScript", "HTML", "ReactJS", "Bootstrap"]}
                         links={[{name:"View source code", href:"https://github.com/jleldridge/website-dev"}]}>
+                        <p className="mt-2">
+                            I developed this website for deployment on GitHub Pages using the ReactJS and Bootstrap libraries.
+                        </p>
                     </ProjectBlurb>
-                    <p className="mt-2">
-                        I developed this website for deployment on GitHub Pages using the ReactJS and Bootstrap libraries.
-                    </p>
                 </div>
             </div>
         );

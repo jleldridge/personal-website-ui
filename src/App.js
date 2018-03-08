@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div className="bg-dark">
         <nav id="top-navbar" className="navbar navbar-expand-lg navbar-dark fixed-top" style={{backgroundColor: "#563D7C"}}>
-          <img style={{height:'50px',float:'left',marginRight:'10px'}} src={myPicture} alt="logo" />
+          <img style={{height:'50px', float:'left', marginRight:'10px'}} src={myPicture} alt="logo" />
           <div className="navbar-brand">Jeffrey Eldridge</div>
 
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded="false" aria-label="Toggle navigation">
