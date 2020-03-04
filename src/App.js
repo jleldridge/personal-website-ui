@@ -32,10 +32,32 @@ function hashChange(e) {
       carousel.carousel(4);
       break;
   }
+  // change active menu link
+  $("#navlist")
+    .find(".active")
+    .removeClass("active");
+  $(`${hash}-nav`).addClass("active");
 }
 window.onhashchange = hashChange;
 
 class App extends Component {
+  handleAnchorClick(e) {
+    e.preventDefault();
+    var hash = this.state.href;
+    var offset = $(hash).offset();
+    if (offset) {
+      $("html, body").animate(
+        {
+          scrollTop: offset.top
+        },
+        300,
+        function() {
+          window.location.hash = hash;
+        }
+      );
+    }
+  }
+
   render() {
     return (
       <div className="bg-dark">
@@ -65,21 +87,41 @@ class App extends Component {
 
           <div id="navlist" className="collapse navbar-collapse">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" href="#home">
+              <SmoothScrollAnchor
+                id="home-nav"
+                className="nav-item nav-link"
+                href="#home"
+              >
                 Home
-              </a>
-              <a className="nav-item nav-link" href="#skills">
+              </SmoothScrollAnchor>
+              <SmoothScrollAnchor
+                id="skills-nav"
+                className="nav-item nav-link"
+                href="#skills"
+              >
                 Skills
-              </a>
-              <a className="nav-item nav-link" href="#experience">
+              </SmoothScrollAnchor>
+              <SmoothScrollAnchor
+                id="experience-nav"
+                className="nav-item nav-link"
+                href="#experience"
+              >
                 Experience
-              </a>
-              <a className="nav-item nav-link" href="#education">
+              </SmoothScrollAnchor>
+              <SmoothScrollAnchor
+                id="education-nav"
+                className="nav-item nav-link"
+                href="#education"
+              >
                 Education
-              </a>
-              <a className="nav-item nav-link" href="#projects">
+              </SmoothScrollAnchor>
+              <SmoothScrollAnchor
+                id="projects-nav"
+                className="nav-item nav-link"
+                href="#projects"
+              >
                 Projects
-              </a>
+              </SmoothScrollAnchor>
             </div>
           </div>
         </nav>

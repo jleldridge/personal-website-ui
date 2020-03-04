@@ -18,7 +18,7 @@ class Home extends Component {
           <a href="mailto:jleldridge27@gmail.com">jleldridge27@gmail.com</a>
         </p>
         <a
-          class="btn btn-primary"
+          className="btn btn-primary"
           href="https://www.linkedin.com/in/jeffrey-eldridge-547aa3b3/"
           target="_blank"
         >
