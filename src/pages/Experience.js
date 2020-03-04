@@ -39,14 +39,14 @@ class Experience extends Component {
           <ul>
             <li>
               Helped design and develop{" "}
-              <SmoothScrollAnchor href="#monarch">
+              <SmoothScrollAnchor href="#projects">
                 Monarch Complete{" "}
               </SmoothScrollAnchor>
               using C#, XAML, WPF, and .NET.
             </li>
             <li>
               Worked on UI and streaming data plugins for{" "}
-              <SmoothScrollAnchor href="#panopticon">
+              <SmoothScrollAnchor href="#projects">
                 Datawatch Panopticon{" "}
               </SmoothScrollAnchor>
               in Stockholm using C#, XAML, WPF, .NET, and Java.
