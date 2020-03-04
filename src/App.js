@@ -22,18 +22,16 @@ function hashChange(e) {
     case "#skills":
       carousel.carousel(1);
       break;
+    case "#experience":
+      carousel.carousel(2);
+      break;
+    case "#education":
+      carousel.carousel(3);
+      break;
+    case "#projects":
+      carousel.carousel(4);
+      break;
   }
-  // var offset = $(hash).offset();
-
-  // if (offset) {
-  //   $("html, body").animate(
-  //     {
-  //       scrollTop: $(hash).offset().top
-  //     },
-  //     300,
-  //     function() {}
-  //   );
-  // }
 }
 window.onhashchange = hashChange;
 
@@ -67,30 +65,21 @@ class App extends Component {
 
           <div id="navlist" className="collapse navbar-collapse">
             <div className="navbar-nav">
-              <SmoothScrollAnchor className="nav-item nav-link" href="#home">
+              <a className="nav-item nav-link" href="#home">
                 Home
-              </SmoothScrollAnchor>
-              <SmoothScrollAnchor className="nav-item nav-link" href="#skills">
+              </a>
+              <a className="nav-item nav-link" href="#skills">
                 Skills
-              </SmoothScrollAnchor>
-              <SmoothScrollAnchor
-                className="nav-item nav-link"
-                href="#experience"
-              >
+              </a>
+              <a className="nav-item nav-link" href="#experience">
                 Experience
-              </SmoothScrollAnchor>
-              <SmoothScrollAnchor
-                className="nav-item nav-link"
-                href="#education"
-              >
+              </a>
+              <a className="nav-item nav-link" href="#education">
                 Education
-              </SmoothScrollAnchor>
-              <SmoothScrollAnchor
-                className="nav-item nav-link"
-                href="#projects"
-              >
+              </a>
+              <a className="nav-item nav-link" href="#projects">
                 Projects
-              </SmoothScrollAnchor>
+              </a>
             </div>
           </div>
         </nav>
@@ -137,24 +126,6 @@ class App extends Component {
               <Projects />
             </div>
           </div>
-          <a
-            class="carousel-control-prev"
-            href="#parentCarousel"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#parentCarousel"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
       </div>
     );
