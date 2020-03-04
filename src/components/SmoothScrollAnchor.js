@@ -41,9 +41,11 @@ class SmoothScrollAnchor extends Component {
         carousel.carousel(4);
         break;
     }
-    setTimeout(() => {
-      window.location.hash = hash;
-    }, 500);
+    // change active menu link
+    $("#navlist")
+      .find(".active")
+      .removeClass("active");
+    $(`${hash}-nav`).addClass("active");
   }
 }
 
