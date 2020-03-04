@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import Page from "../components/Page";
 
 class Home extends Component {
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid bg-dark">
-        <h1 className="display-3 text-info">Hello!</h1>
+      <Page title="Hello!">
         <p className="lead">
           I am Jeffrey Eldridge, a software engineer based out of Portland,
           Oregon. I have used several different languages in my career so far,
@@ -24,7 +24,7 @@ class Home extends Component {
         >
           LinkedIn Profile
         </a>
-      </div>
+      </Page>
     );
   }
 }

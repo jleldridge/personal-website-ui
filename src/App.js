@@ -94,19 +94,21 @@ class App extends Component {
           id="parentCarousel"
         >
           <div className="carousel-inner">
-            <div id="home" className="carousel-item active">
-              <Home />
+            <div id="home" className="carousel-item active pr-5 pl-5">
+              <div className="">
+                <Home />
+              </div>
             </div>
-            <div id="skills" className="carousel-item">
+            <div id="skills" className="carousel-item pr-5 pl-5">
               <Skills />
             </div>
-            <div id="experience" className="carousel-item">
+            <div id="experience" className="carousel-item pr-5 pl-5">
               <Experience />
             </div>
-            <div id="education" className="carousel-item">
+            <div id="education" className="carousel-item pr-5 pl-5">
               <Education />
             </div>
-            <div id="projects" className="carousel-item">
+            <div id="projects" className="carousel-item pr-5 pl-5">
               <Projects />
             </div>
           </div>

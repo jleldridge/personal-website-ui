@@ -1,0 +1,10 @@
+@import "bootstrap/scss/bootstrap";
+
+// bootstrap overrides
+$enable-shadows: true;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
