@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import SmoothScrollAnchor from "../components/SmoothScrollAnchor";
+import Page from "../components/Page";
 
 class Experience extends Component {
   render() {
     return (
-      <div>
-        <h2 className="text-info">Experience</h2>
-        <div className="container mb-4">
+      <Page title="Experience">
+        <div className="mb-4">
           <p className="text-secondary mb-0">May 2018 - March 2020</p>
           <p className="mb-0 text-success">
             Software Engineer - <span className="font-italic">Abstract</span>
@@ -30,7 +30,7 @@ class Experience extends Component {
             </li>
           </ul>
         </div>
-        <div className="container mb-4">
+        <div className="mb-4">
           <p className="text-secondary mb-0">January 2014 - April 2018</p>
           <p className="mb-0 text-success">
             Software Developer -{" "}
@@ -39,21 +39,21 @@ class Experience extends Component {
           <ul>
             <li>
               Helped design and develop{" "}
-              <SmoothScrollAnchor href="#monarch">
+              <SmoothScrollAnchor href="#projects">
                 Monarch Complete{" "}
               </SmoothScrollAnchor>
               using C#, XAML, WPF, and .NET.
             </li>
             <li>
               Worked on UI and streaming data plugins for{" "}
-              <SmoothScrollAnchor href="#panopticon">
+              <SmoothScrollAnchor href="#projects">
                 Datawatch Panopticon{" "}
               </SmoothScrollAnchor>
               in Stockholm using C#, XAML, WPF, .NET, and Java.
             </li>
           </ul>
         </div>
-        <div className="container mt-3">
+        <div className="mt-3">
           <p className="text-secondary mb-0">August 2013 - December 2013</p>
           <p className="mb-0 text-success">
             Intern - <span className="font-italic">Datawatch Corporation</span>
@@ -69,7 +69,7 @@ class Experience extends Component {
             </li>
           </ul>
         </div>
-        <div className="container mt-3">
+        <div className="mt-3">
           <p className="text-secondary mb-0">January 2012 - April 2013</p>
           <p className="mb-0 text-success">
             Computer Science Lab Tutor -{" "}
@@ -84,7 +84,7 @@ class Experience extends Component {
             </li>
           </ul>
         </div>
-      </div>
+      </Page>
     );
   }
 }
