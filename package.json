@@ -2,9 +2,9 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jleldridge.github.io/website-dev",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.1",
     "popper.js": "^1.16.1",
