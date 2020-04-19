@@ -33,7 +33,7 @@ class App extends Component {
             src={myPicture}
             alt="logo"
           />
-          <div className="navbar-brand">Jeffrey Eldridge</div>
+          <div className="navbar-brand">Luke Eldridge</div>
 
           <button
             className="navbar-toggler"

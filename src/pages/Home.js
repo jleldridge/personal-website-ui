@@ -6,7 +6,7 @@ class Home extends Component {
     return (
       <Page title="Hello!">
         <p className="lead">
-          I am Jeffrey Eldridge, a software engineer based out of Portland,
+          I am Luke Eldridge, a software engineer based out of Portland,
           Oregon. I have used several different languages in my career so far,
           including javascript, C#, golang, objective-c, ruby, and others. I
           have worked professionally on web apps and desktop apps for both MacOS
@@ -19,7 +19,7 @@ class Home extends Component {
         </p>
         <a
           className="btn btn-primary"
-          href="https://www.linkedin.com/in/jeffrey-eldridge-547aa3b3/"
+          href="www.linkedin.com/in/lukeeldridge27"
           target="_blank"
         >
           LinkedIn Profile
