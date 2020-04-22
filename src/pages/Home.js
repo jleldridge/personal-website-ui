@@ -19,7 +19,7 @@ class Home extends Component {
         </p>
         <a
           className="btn btn-primary"
-          href="www.linkedin.com/in/lukeeldridge27"
+          href="https://www.linkedin.com/in/lukeeldridge27"
           target="_blank"
         >
           LinkedIn Profile
