@@ -28,7 +28,7 @@ class Projects extends Component {
             }
           ]}
         >
-          Abstract is a tool developed by Elastic Projects that leverages the
+          Abstract is a tool that leverages the
           power of version control to allow design teams to collaborate and more
           effectively hand design assets off to developers. While at Abstract I
           worked on the full stack of the app, from adding server and desktop
@@ -150,8 +150,8 @@ class Projects extends Component {
           ]}
         >
           <p className="mt-2">
-            I developed this website for deployment on GitHub Pages using the
-            ReactJS and Bootstrap libraries.
+            I developed this website for deployment on AWS Lightsail with NodeJS as the backend
+            and ReactJS and Bootstrap as the frontend.
           </p>
         </ProjectBlurb>
       </Page>

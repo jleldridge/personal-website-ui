@@ -13,6 +13,7 @@ class Skills extends Component {
               <li>XAML</li>
               <li>JavaScript</li>
               <li>HTML</li>
+              <li>CSS</li>
               <li>Java</li>
               <li>Ruby</li>
               <li>Golang</li>
@@ -22,11 +23,14 @@ class Skills extends Component {
           <div className="col-sm">
             <h4>Frameworks</h4>
             <ul className="list-unstyled mt-3">
+              <li>ReactJS</li>
+              <li>NodeJS</li>
+              <li>Electron</li>
+              <li>Redux</li>
+              <li>Ruby on Rails</li>
               <li>.NET</li>
               <li>WPF</li>
               <li>UWP</li>
-              <li>ReactJS</li>
-              <li>Electron</li>
             </ul>
           </div>
         </div>
@@ -36,12 +40,10 @@ class Skills extends Component {
             <ul className="list-unstyled mt-3">
               <li>Visual Studio</li>
               <li>IntelliJ</li>
-              <li>NodeJS</li>
               <li>NPM</li>
               <li>Git</li>
               <li>Mercurial</li>
               <li>Jira</li>
-              <li>Rails</li>
               <li>Yarn</li>
             </ul>
           </div>
