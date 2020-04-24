@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+import { unregister } from "./registerServiceWorker";
 
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.scss";
@@ -11,3 +11,4 @@ ReactDOM.render(<App />, document.getElementById("root"));
 // but this also seems to supercede the routing system in express if this app is
 // loaded first, so we're leaving this out unless we can find a way for it to play nice.
 // registerServiceWorker();
+unregister();
