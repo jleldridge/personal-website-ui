@@ -1,5 +1,9 @@
 const express = require("express");
 const path = require("path");
+const bcrypt = require("bcryptjs");
+const redis = require("redis");
+
+const redisClient = redis.createClient();
 const router = express.Router();
 const rootDir = process.cwd();
 
@@ -19,5 +23,13 @@ function getLogin(req, res, next) {
 }
 
 function postLogin(req, res, next) {
-  res.send("Hello admin!");
+  const { username, password } = req.body;
+  redisClient.get(`user:${username}`, function (err, reply) {
+    if (reply && bcrypt.compareSync(password, reply)) {
+      console.log("admin authenticated, returning true");
+      res.send("Admin authenticated");
+    } else {
+      res.status(400).json({ message: "Username or password is incorrect" });
+    }
+  });
 }
