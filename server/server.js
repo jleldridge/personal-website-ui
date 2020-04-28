@@ -1,12 +1,15 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+
 const app = express();
 const rootDir = process.cwd();
 
-app.use(express.static(path.join(rootDir, 'build')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use("/admin", require("./admin"));
+app.use(require("./error"));
+app.use(express.static(path.join(rootDir, "build")));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(rootDir, 'build', 'index.html'));
-});
-
+console.log("server started!");
 app.listen(9000);
