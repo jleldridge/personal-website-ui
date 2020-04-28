@@ -26,7 +26,6 @@ function postLogin(req, res, next) {
   const { username, password } = req.body;
   redisClient.get(`user:${username}`, function (err, reply) {
     if (reply && bcrypt.compareSync(password, reply)) {
-      console.log("admin authenticated, returning true");
       res.send("Admin authenticated");
     } else {
       res.status(400).json({ message: "Username or password is incorrect" });
