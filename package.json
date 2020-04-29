@@ -13,10 +13,12 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "redis": "^3.0.2"
+    "redis": "^3.0.2",
+    "serve": "^11.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-ui": "npx serve -s build",
     "start-server": "node ./server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

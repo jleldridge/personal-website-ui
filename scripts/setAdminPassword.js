@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const redis = require("redis");
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient({ prefix: "luke-eldridge.com:" });
 
 bcrypt.genSalt(10, function (err, salt) {
   if (err) return err;

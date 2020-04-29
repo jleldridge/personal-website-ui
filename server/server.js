@@ -7,9 +7,8 @@ const rootDir = process.cwd();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/admin", require("./admin"));
+app.use("/", require("./admin"));
 app.use(require("./error"));
-app.use(express.static(path.join(rootDir, "build")));
 
 console.log("server started!");
 app.listen(9000);
