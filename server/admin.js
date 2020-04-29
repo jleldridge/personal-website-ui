@@ -1,11 +1,9 @@
 const express = require("express");
 const path = require("path");
 const bcrypt = require("bcryptjs");
-const redis = require("redis");
-
-const redisClient = redis.createClient({ prefix: "luke-eldridge.com:" });
 const router = express.Router();
 const rootDir = process.cwd();
+const redisClient = require("./redisClient");
 
 // routes
 router.get("/", adminRoot);
