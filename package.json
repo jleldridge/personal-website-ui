@@ -17,9 +17,9 @@
     "serve": "^11.3.0"
   },
   "scripts": {
-    "start": "forever start -c \"/bin/bash\" ./scripts/startServer.sh && forever start -c \"/bin/bash\" ./scripts/startUI.sh",
-    "stop": "forever stop ./scripts/startServer.sh && forever stop ./scripts/startUI.sh",
     "start-ui-dev": "react-scripts start",
+    "start-ui": "npx serve -s build",
+    "start-server": "node ./server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

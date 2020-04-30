@@ -6,14 +6,14 @@ const rootDir = process.cwd();
 const redisClient = require("./redisClient");
 
 // routes
-router.get("/", adminRoot);
+router.get("/", getIndex);
 router.get("/login", getLogin);
 router.post("/login", postLogin);
 
 module.exports = router;
 
-function adminRoot(req, res, next) {
-  res.send("Hello unauthed admin!");
+function getIndex(req, res, next) {
+  res.sendFile(path.join(rootDir, "server", "views", "admin", "index.html"));
 }
 
 function getLogin(req, res, next) {
