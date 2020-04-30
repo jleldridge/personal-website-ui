@@ -17,7 +17,7 @@ function adminRoot(req, res, next) {
 }
 
 function getLogin(req, res, next) {
-  res.sendFile(path.join(rootDir, "server", "views", "login.html"));
+  res.sendFile(path.join(rootDir, "server", "views", "admin", "login.html"));
 }
 
 function postLogin(req, res, next) {
