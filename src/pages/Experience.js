@@ -13,20 +13,19 @@ class Experience extends Component {
           </p>
           <ul>
             <li>
-              Helped develop git-based version control for Sketch files with
-              Golang.
+              Developed and maintained features for git-based version control for Sketch files.
             </li>
             <li>
-              Maintained Abstract’s Sketch plugin by fixing bugs and updating
-              code to keep up with Sketch updates.
+              Fixed bugs and updated code in Abstract’s Sketch plugin to keep up with Sketch updates
             </li>
             <li>
-              Created code to extract data from Sketch’s file format using
-              Golang to support features such as design assets in Abstract.
+              Created code to extract data from Sketch’s file format to support features such as design assets in Abstract.
             </li>
             <li>
-              Added server endpoints to support new features for the Abstract
-              desktop and web apps using Ruby on Rails and Golang.
+              Added server endpoints to support new features for the Abstract desktop and web apps.
+            </li>
+            <li>
+              Used Objective-C, Electron, ReactJS, Redux, Go, and Ruby on Rails.
             </li>
           </ul>
         </div>
