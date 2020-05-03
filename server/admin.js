@@ -10,17 +10,12 @@ const rootDir = process.cwd();
 
 // routes
 router.get("/", getIndex);
-router.get("/login", getLogin);
 router.post("/login", postLogin);
 
 module.exports = router;
 
 function getIndex(req, res, next) {
   res.sendFile(path.join(rootDir, "server", "views", "admin", "index.html"));
-}
-
-function getLogin(req, res, next) {
-  res.sendFile(path.join(rootDir, "server", "views", "admin", "login.html"));
 }
 
 function postLogin(req, res, next) {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import $ from "jquery";
 
 import SmoothScrollAnchor from "./components/SmoothScrollAnchor";
@@ -10,6 +10,7 @@ import Skills from "./pages/Skills";
 import Experience from "./pages/Experience";
 import Education from "./pages/Education";
 import Projects from "./pages/Projects";
+import Admin from "./pages/Admin";
 
 class App extends Component {
   componentDidMount() {
@@ -117,7 +118,9 @@ class App extends Component {
               </div>
             </div>
           </Route>
-          <Route path="/admin">Hello admin!</Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
         </Switch>
       </Router>
     );
