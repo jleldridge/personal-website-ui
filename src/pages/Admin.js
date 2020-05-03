@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import axios from "axios";
 import store from "../Store";
+import config from "../config.json";
 
 class Admin extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Admin extends Component {
 
   handleLogin(event) {
     axios
-      .post("http://localhost:9000/admin/login", {
+      .post(config.API_SERVER_URL + "/admin/login", {
         username: this.state.username,
         password: this.state.password,
       })
