@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import axios from "axios";
+import store from "../Store";
 
 class Admin extends Component {
   constructor(props) {
@@ -21,14 +22,13 @@ class Admin extends Component {
   }
 
   handleLogin(event) {
-    console.log("handling login from form...");
     axios
       .post("http://localhost:9000/admin/login", {
         username: this.state.username,
         password: this.state.password,
       })
       .then(function (response) {
-        console.log(response);
+        store.dispatch({ type: "USER_TOKEN", token: response.data.token });
       })
       .catch(function (error) {
         console.log(error);
