@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import path from "path";
 import axios from "axios";
 import config from "../config.json";
-import { storeToken, clearToken } from "../redux/actions";
+import { storeToken, clearToken, storeHomeContent } from "../redux/actions";
 import AuthedRoute from "../components/AuthedRoute";
 
 class Admin extends Component {
@@ -28,6 +28,27 @@ class Admin extends Component {
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleUpdateHome = this.handleUpdateHome.bind(this);
+  }
+
+  componentDidMount() {
+    const {
+      storeHomeContent,
+      homeSummary,
+      homeContact,
+      homeLinkedInURL,
+    } = this.props;
+    const axiosConfig = {
+      headers: { Authorization: `Bearer ${this.props.token}` },
+    };
+    axios
+      .get(config.API_SERVER_URL + "/content/home", axiosConfig)
+      .then((response) => {
+        storeHomeContent(response.data);
+        this.setState({ homeSummary, homeContact, homeLinkedInURL });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleUsernameChanged(event) {
@@ -185,8 +206,14 @@ class Admin extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { token: state.token };
+  const { homeContent } = state;
+  return {
+    homeSummary: homeContent && homeContent.summary,
+    homeContact: homeContent && homeContent.contact,
+    homeLinkedInURL: homeContent && homeContent.linkedInURL,
+    token: state.token,
+  };
 };
-const mapDispatchToProps = { storeToken, clearToken };
+const mapDispatchToProps = { storeToken, clearToken, storeHomeContent };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Admin));
