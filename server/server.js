@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(jwt());
 app.use("/admin", require("./admin"));
+app.use("/content/home", require("./content/home"));
 app.use(require("./error"));
 
 console.log("server started!");

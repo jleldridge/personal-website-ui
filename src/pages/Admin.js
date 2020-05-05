@@ -1,17 +1,32 @@
 import React, { Component } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import path from "path";
 import axios from "axios";
-import store from "../Store";
 import config from "../config.json";
+import { storeToken } from "../redux/actions";
 
 class Admin extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = {
+      username: "",
+      password: "",
+      homeSummary: "",
+      homeContact: "",
+      homeLinkedInURL: "",
+    };
 
     this.handleUsernameChanged = this.handleUsernameChanged.bind(this);
     this.handlePasswordChanged = this.handlePasswordChanged.bind(this);
+    this.handleHomeSummaryChanged = this.handleHomeSummaryChanged.bind(this);
+    this.handleHomeContactChanged = this.handleHomeContactChanged.bind(this);
+    this.handleHomeLinkedInURLChanged = this.handleHomeLinkedInURLChanged.bind(
+      this
+    );
+
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleUpdateHome = this.handleUpdateHome.bind(this);
   }
 
   handleUsernameChanged(event) {
@@ -22,14 +37,50 @@ class Admin extends Component {
     this.setState({ password: event.target.value });
   }
 
+  handleHomeSummaryChanged(event) {
+    this.setState({ homeSummary: event.target.value });
+  }
+
+  handleHomeContactChanged(event) {
+    this.setState({ homeContact: event.target.value });
+  }
+
+  handleHomeLinkedInURLChanged(event) {
+    this.setState({ homeLinkedInURL: event.target.value });
+  }
+
   handleLogin(event) {
+    const { storeToken } = this.props;
     axios
       .post(config.API_SERVER_URL + "/admin/login", {
         username: this.state.username,
         password: this.state.password,
       })
       .then(function (response) {
-        store.dispatch({ type: "USER_TOKEN", token: response.data.token });
+        storeToken(response.data.token);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    event.preventDefault();
+  }
+
+  handleUpdateHome(event) {
+    const axiosConfig = {
+      headers: { Authorization: `Bearer ${this.props.token}` },
+    };
+    axios
+      .post(
+        config.API_SERVER_URL + "/content/home",
+        {
+          summary: this.state.homeSummary,
+          contact: this.state.homeContact,
+          linkedInURL: this.state.homeLinkedInURL,
+        },
+        axiosConfig
+      )
+      .then(function (response) {
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -66,10 +117,47 @@ class Admin extends Component {
               <input type="submit" value="Log In" />
             </div>
           </form>
+          <Link to={`${url}/home`}>Home</Link>
+        </Route>
+        <Route path={`${path}/home`}>
+          <form onSubmit={this.handleUpdateHome}>
+            <div>
+              <label>Summary:</label>
+              <input
+                type="text"
+                value={this.state.homeSummary}
+                onChange={this.handleHomeSummaryChanged}
+              />
+            </div>
+            <div>
+              <label>Contact:</label>
+              <input
+                type="text"
+                value={this.state.homeContact}
+                onChange={this.handleHomeContactChanged}
+              />
+            </div>
+            <div>
+              <label>LinkedIn URL</label>
+              <input
+                type="text"
+                value={this.state.homeLinkedInURL}
+                onChange={this.handleHomeLinkedInURLChanged}
+              />
+            </div>
+            <div>
+              <input type="submit" value="Update" />
+            </div>
+          </form>
         </Route>
       </Switch>
     );
   }
 }
 
-export default withRouter(Admin);
+const mapStateToProps = (state) => {
+  return { token: state.token };
+};
+const mapDispatchToProps = { storeToken };
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Admin));
