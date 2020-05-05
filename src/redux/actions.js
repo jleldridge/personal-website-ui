@@ -3,6 +3,10 @@ export const storeToken = (token) => ({
   token,
 });
 
+export const clearToken = () => ({
+  type: "CLEAR_TOKEN",
+});
+
 export const storeHomeContent = (homeContent) => ({
   type: "HOME_CONTENT",
   homeContent,

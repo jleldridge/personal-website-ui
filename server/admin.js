@@ -17,7 +17,9 @@ function login(req, res, next) {
   const { username, password } = req.body;
   redisClient.get(`user:${username}`, function (err, reply) {
     if (reply && bcrypt.compareSync(password, reply)) {
-      const token = jwt.sign({ sub: "admin" }, config.secret);
+      const token = jwt.sign({ sub: "admin" }, config.secret, {
+        expiresIn: "1d",
+      });
       res.json({ user: "admin", token });
     } else {
       res.status(400).json({ message: "Username or password is incorrect" });

@@ -11,7 +11,7 @@ function jwt() {
       "/admin/login",
       {
         url: "/content/home",
-        method: "GET",
+        methods: ["GET"],
       },
     ],
   });

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { Switch, Route, Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import path from "path";
 import axios from "axios";
 import config from "../config.json";
-import { storeToken } from "../redux/actions";
+import { storeToken, clearToken } from "../redux/actions";
+import AuthedRoute from "../components/AuthedRoute";
 
 class Admin extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class Admin extends Component {
   }
 
   handleUpdateHome(event) {
+    const { clearToken } = this.props;
     const axiosConfig = {
       headers: { Authorization: `Bearer ${this.props.token}` },
     };
@@ -79,47 +81,63 @@ class Admin extends Component {
         },
         axiosConfig
       )
-      .then(function (response) {
-        console.log(response);
-      })
+      .then(function (response) {})
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response);
+        if (error.response.status >= 400 && error.response.status < 500) {
+          clearToken();
+        }
       });
     event.preventDefault();
   }
 
   render() {
     const { path, url } = this.props.match;
+    const loginRedirect = `${path}/login`;
     return (
       <Switch>
-        <Route exact path={`${path}/`}>
-          Hello Admin!
-        </Route>
+        <AuthedRoute exact path={`${path}`} redirect={loginRedirect}>
+          <div>
+            <Link to={`${path}/home`}>Home</Link>
+          </div>
+          <div>
+            <Link to={`${path}/home`}>Home</Link>
+          </div>
+          <div>
+            <Link to={`${path}/home`}>Home</Link>
+          </div>
+          <div>
+            <Link to={`${path}/home`}>Home</Link>
+          </div>
+        </AuthedRoute>
         <Route path={`${path}/login`}>
-          <form onSubmit={this.handleLogin}>
-            <div>
-              <label>Username:</label>
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.handleUsernameChanged}
-              />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChanged}
-              />
-            </div>
-            <div>
-              <input type="submit" value="Log In" />
-            </div>
-          </form>
-          <Link to={`${url}/home`}>Home</Link>
+          {this.props.token ? (
+            <Redirect to={`${path}/`} />
+          ) : (
+            <form onSubmit={this.handleLogin}>
+              <div>
+                <label>Username:</label>
+                <input
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.handleUsernameChanged}
+                />
+              </div>
+              <div>
+                <label>Password:</label>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChanged}
+                />
+              </div>
+              <div>
+                <input type="submit" value="Log In" />
+              </div>
+            </form>
+          )}
         </Route>
-        <Route path={`${path}/home`}>
+        <AuthedRoute path={`${path}/home`} redirect={loginRedirect}>
           <form onSubmit={this.handleUpdateHome}>
             <div>
               <label>Summary:</label>
@@ -149,7 +167,10 @@ class Admin extends Component {
               <input type="submit" value="Update" />
             </div>
           </form>
-        </Route>
+          <div>
+            <Link to={`${path}`}>Back</Link>
+          </div>
+        </AuthedRoute>
       </Switch>
     );
   }
@@ -158,6 +179,6 @@ class Admin extends Component {
 const mapStateToProps = (state) => {
   return { token: state.token };
 };
-const mapDispatchToProps = { storeToken };
+const mapDispatchToProps = { storeToken, clearToken };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Admin));
