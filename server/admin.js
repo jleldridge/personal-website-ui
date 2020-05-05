@@ -9,16 +9,11 @@ const router = express.Router();
 const rootDir = process.cwd();
 
 // routes
-router.get("/", getIndex);
-router.post("/login", postLogin);
+router.post("/login", login);
 
 module.exports = router;
 
-function getIndex(req, res, next) {
-  res.sendFile(path.join(rootDir, "server", "views", "admin", "index.html"));
-}
-
-function postLogin(req, res, next) {
+function login(req, res, next) {
   const { username, password } = req.body;
   redisClient.get(`user:${username}`, function (err, reply) {
     if (reply && bcrypt.compareSync(password, reply)) {
