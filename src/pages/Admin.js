@@ -138,37 +138,45 @@ class Admin extends Component {
           )}
         </Route>
         <AuthedRoute path={`${path}/home`} redirect={loginRedirect}>
-          <form onSubmit={this.handleUpdateHome}>
+          <div className="jumbotron jumbotron-fluid bg-dark mt-3 pl-5 pr-5 shadow-sm rounded">
+            <form onSubmit={this.handleUpdateHome}>
+              <div>
+                <label className="text-secondary mb-0">Summary:</label>
+                <div>
+                  <textarea
+                    type="text"
+                    value={this.state.homeSummary}
+                    onChange={this.handleHomeSummaryChanged}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-secondary mb-0">Contact:</label>
+                <div>
+                  <textarea
+                    type="text"
+                    value={this.state.homeContact}
+                    onChange={this.handleHomeContactChanged}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-secondary mb-0">LinkedIn URL</label>
+                <div>
+                  <textarea
+                    type="text"
+                    value={this.state.homeLinkedInURL}
+                    onChange={this.handleHomeLinkedInURLChanged}
+                  />
+                </div>
+              </div>
+              <div>
+                <input type="submit" value="Update" />
+              </div>
+            </form>
             <div>
-              <label>Summary:</label>
-              <input
-                type="text"
-                value={this.state.homeSummary}
-                onChange={this.handleHomeSummaryChanged}
-              />
+              <Link to={`${path}`}>Back</Link>
             </div>
-            <div>
-              <label>Contact:</label>
-              <input
-                type="text"
-                value={this.state.homeContact}
-                onChange={this.handleHomeContactChanged}
-              />
-            </div>
-            <div>
-              <label>LinkedIn URL</label>
-              <input
-                type="text"
-                value={this.state.homeLinkedInURL}
-                onChange={this.handleHomeLinkedInURLChanged}
-              />
-            </div>
-            <div>
-              <input type="submit" value="Update" />
-            </div>
-          </form>
-          <div>
-            <Link to={`${path}`}>Back</Link>
           </div>
         </AuthedRoute>
       </Switch>
