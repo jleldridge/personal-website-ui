@@ -1,4 +1,11 @@
 import { createStore } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
 
 function reduce(state = {}, action) {
   switch (action.type) {
@@ -13,6 +20,8 @@ function reduce(state = {}, action) {
   }
 }
 
-let store = createStore(reduce);
+const persistedReducer = persistReducer(persistConfig, reduce);
 
-export default store;
+let store = createStore(persistedReducer);
+let persistor = persistStore(store);
+export default { store, persistor };
