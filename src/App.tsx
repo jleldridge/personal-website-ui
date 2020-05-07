@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     $("#parentCarousel").on("slid.bs.carousel", (e) => {
       $("#navlist").find(".active").removeClass("active");
-      $(`#${e.relatedTarget.id}-nav`).addClass("active");
+      $(`#${e.delegateTarget.id}-nav`).addClass("active");
     });
   }
 

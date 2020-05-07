@@ -7,7 +7,7 @@ const persistConfig = {
   storage,
 };
 
-function reduce(state = {}, action) {
+function reduce(state = {}, action: any) {
   switch (action.type) {
     case "USER_TOKEN":
       return { ...state, token: action.token };
