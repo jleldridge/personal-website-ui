@@ -1,14 +1,16 @@
-const express = require("express");
-const redisClient = require("../redisClient");
+import express from "express";
+import redisClient from "../redisClient";
 
 const router = express.Router();
 
 router.get("/", getHome);
 router.post("/", updateHome);
 
-module.exports = router;
-
-function getHome(req, res, next) {
+function getHome(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   redisClient.get("content:home", function (err, reply) {
     if (reply) {
       res.json(JSON.parse(reply));
@@ -18,7 +20,11 @@ function getHome(req, res, next) {
   });
 }
 
-function updateHome(req, res, next) {
+function updateHome(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   redisClient.set("content:home", JSON.stringify(req.body), function (
     err,
     reply
@@ -26,3 +32,5 @@ function updateHome(req, res, next) {
     res.send(reply);
   });
 }
+
+export default router;

@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import $ from "jquery";
 
-class SmoothScrollAnchor extends Component {
-  constructor(props) {
+type Props = {
+  id?: string;
+  className?: string;
+  href: string;
+};
+
+class SmoothScrollAnchor extends Component<Props> {
+  constructor(props: Props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -20,7 +26,7 @@ class SmoothScrollAnchor extends Component {
     );
   }
 
-  handleClick(e) {
+  handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     e.preventDefault();
     var hash = this.props.href;
     const carousel = $("#parentCarousel");

@@ -1,4 +1,4 @@
-const redis = require("redis");
+import redis from "redis";
 
 const redisClient = redis.createClient({
   prefix: "luke-eldridge.com:",
@@ -26,4 +26,4 @@ redisClient.on("error", function (error) {
   console.error(error);
 });
 
-module.exports = redisClient;
+export default redisClient;

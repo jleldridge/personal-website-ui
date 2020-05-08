@@ -3,9 +3,18 @@ import { connect } from "react-redux";
 import axios from "axios";
 import Page from "../components/Page";
 import config from "../config.json";
+import { State, HomeContent } from "../types";
 import { storeHomeContent } from "../redux/actions";
 
-class Home extends Component {
+type Props = {
+  storeHomeContent: (homeContent: HomeContent) => void;
+  token?: string;
+  summary?: string;
+  contact?: string;
+  linkedInURL?: string;
+};
+
+class Home extends Component<Props> {
   componentDidMount() {
     const { storeHomeContent } = this.props;
     const axiosConfig = {
@@ -62,7 +71,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   const content = state.homeContent;
   return {
     summary: content && content.summary,

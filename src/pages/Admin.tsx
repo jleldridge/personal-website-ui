@@ -1,14 +1,33 @@
 import React, { Component } from "react";
 import { Switch, Route, Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import path from "path";
 import axios from "axios";
 import config from "../config.json";
 import { storeToken, clearToken, storeHomeContent } from "../redux/actions";
 import AuthedRoute from "../components/AuthedRoute";
+import { State, HomeContent } from "../types";
 
-class Admin extends Component {
-  constructor(props) {
+type Props = {
+  storeHomeContent: (homeContent: HomeContent) => void;
+  storeToken: (token: string) => void;
+  clearToken: () => void;
+  homeSummary: string;
+  homeContact: string;
+  homeLinkedInURL: string;
+  token: string;
+  match: { url: string; path: string };
+};
+
+type AdminState = {
+  username: string;
+  password: string;
+  homeSummary: string;
+  homeContact: string;
+  homeLinkedInURL: string;
+};
+
+class Admin extends Component<Props, AdminState> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       username: "",
@@ -47,31 +66,32 @@ class Admin extends Component {
         this.setState({ homeSummary, homeContact, homeLinkedInURL });
       })
       .catch((error) => {
+        this.props.clearToken();
         console.log(error);
       });
   }
 
-  handleUsernameChanged(event) {
+  handleUsernameChanged(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ username: event.target.value });
   }
 
-  handlePasswordChanged(event) {
+  handlePasswordChanged(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ password: event.target.value });
   }
 
-  handleHomeSummaryChanged(event) {
+  handleHomeSummaryChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ homeSummary: event.target.value });
   }
 
-  handleHomeContactChanged(event) {
+  handleHomeContactChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ homeContact: event.target.value });
   }
 
-  handleHomeLinkedInURLChanged(event) {
+  handleHomeLinkedInURLChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({ homeLinkedInURL: event.target.value });
   }
 
-  handleLogin(event) {
+  handleLogin(event: React.FormEvent<HTMLFormElement>) {
     const { storeToken } = this.props;
     axios
       .post(config.API_SERVER_URL + "/admin/login", {
@@ -87,7 +107,7 @@ class Admin extends Component {
     event.preventDefault();
   }
 
-  handleUpdateHome(event) {
+  handleUpdateHome(event: React.FormEvent<HTMLFormElement>) {
     const { clearToken } = this.props;
     const axiosConfig = {
       headers: { Authorization: `Bearer ${this.props.token}` },
@@ -165,7 +185,7 @@ class Admin extends Component {
                 <label className="text-secondary mb-0">Summary:</label>
                 <div>
                   <textarea
-                    type="text"
+                    data-type="text"
                     value={this.state.homeSummary}
                     onChange={this.handleHomeSummaryChanged}
                   />
@@ -175,7 +195,7 @@ class Admin extends Component {
                 <label className="text-secondary mb-0">Contact:</label>
                 <div>
                   <textarea
-                    type="text"
+                    data-type="text"
                     value={this.state.homeContact}
                     onChange={this.handleHomeContactChanged}
                   />
@@ -185,7 +205,7 @@ class Admin extends Component {
                 <label className="text-secondary mb-0">LinkedIn URL</label>
                 <div>
                   <textarea
-                    type="text"
+                    data-type="text"
                     value={this.state.homeLinkedInURL}
                     onChange={this.handleHomeLinkedInURLChanged}
                   />
@@ -205,7 +225,7 @@ class Admin extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   const { homeContent } = state;
   return {
     homeSummary: homeContent && homeContent.summary,
@@ -216,4 +236,4 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = { storeToken, clearToken, storeHomeContent };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Admin));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin));

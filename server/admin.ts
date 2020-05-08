@@ -1,19 +1,19 @@
-const express = require("express");
-const path = require("path");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const redisClient = require("./redisClient");
-const config = require("./config.json");
+import express from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import redisClient from "./redisClient";
+import config from "./config.json";
 
 const router = express.Router();
-const rootDir = process.cwd();
 
 // routes
 router.post("/login", login);
 
-module.exports = router;
-
-function login(req, res, next) {
+function login(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   const { username, password } = req.body;
   redisClient.get(`user:${username}`, function (err, reply) {
     if (reply && bcrypt.compareSync(password, reply)) {
@@ -26,3 +26,5 @@ function login(req, res, next) {
     }
   });
 }
+
+export default router;

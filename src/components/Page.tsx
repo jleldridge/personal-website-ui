@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
-class Page extends Component {
+type Props = {
+  title: string;
+};
+
+class Page extends Component<Props> {
   render() {
     return (
       <div className="jumbotron jumbotron-fluid bg-light mt-3 pl-5 pr-5 shadow-sm rounded">

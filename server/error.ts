@@ -1,6 +1,11 @@
-module.exports = errorHandler;
+import express from "express";
 
-function errorHandler(err, req, res, next) {
+function errorHandler(
+  err: Error,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   if (typeof err === "string") {
     // custom application error
     return res.status(400).json({ message: err });
@@ -19,3 +24,5 @@ function errorHandler(err, req, res, next) {
   // default to 500 server error
   return res.status(500).json({ message: err.message });
 }
+
+export default errorHandler;
