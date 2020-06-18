@@ -5,6 +5,7 @@ import config from "../config.json";
 import { State } from "../types";
 import { storeContent } from "../redux/actions";
 import ReactMarkdown from "react-markdown";
+import "./markdownStyle.scss";
 
 type Props = {
   sectionName: string;
@@ -29,7 +30,7 @@ export default function Section(props: Props) {
   }, [props.sectionName]);
 
   return (
-    <div style={{ color: "white" }}>
+    <div className="mdcontainer">
       <ReactMarkdown source={content} />
     </div>
   );

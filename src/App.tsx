@@ -56,27 +56,6 @@ class App extends Component {
                       Home
                     </SmoothScrollAnchor>
                     <SmoothScrollAnchor
-                      id="skills-nav"
-                      className="nav-item nav-link"
-                      href="#skills"
-                    >
-                      Skills
-                    </SmoothScrollAnchor>
-                    <SmoothScrollAnchor
-                      id="experience-nav"
-                      className="nav-item nav-link"
-                      href="#experience"
-                    >
-                      Experience
-                    </SmoothScrollAnchor>
-                    <SmoothScrollAnchor
-                      id="education-nav"
-                      className="nav-item nav-link"
-                      href="#education"
-                    >
-                      Education
-                    </SmoothScrollAnchor>
-                    <SmoothScrollAnchor
                       id="projects-nav"
                       className="nav-item nav-link"
                       href="#projects"
@@ -95,15 +74,6 @@ class App extends Component {
                 <div className="carousel-inner">
                   <div id="home" className="carousel-item active pr-5 pl-5">
                     <Section sectionName="home" />
-                  </div>
-                  <div id="skills" className="carousel-item pr-5 pl-5">
-                    <Section sectionName="skills" />
-                  </div>
-                  <div id="experience" className="carousel-item pr-5 pl-5">
-                    <Section sectionName="experience" />
-                  </div>
-                  <div id="education" className="carousel-item pr-5 pl-5">
-                    <Section sectionName="education" />
                   </div>
                   <div id="projects" className="carousel-item pr-5 pl-5">
                     <Section sectionName="projects" />

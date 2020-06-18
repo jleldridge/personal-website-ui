@@ -34,17 +34,8 @@ class SmoothScrollAnchor extends Component<Props> {
       case "#home":
         carousel.carousel(0);
         break;
-      case "#skills":
-        carousel.carousel(1);
-        break;
-      case "#experience":
-        carousel.carousel(2);
-        break;
-      case "#education":
-        carousel.carousel(3);
-        break;
       case "#projects":
-        carousel.carousel(4);
+        carousel.carousel(1);
         break;
     }
   }
