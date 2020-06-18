@@ -26,7 +26,8 @@ export default function Section(props: Props) {
       .catch(function (error) {
         console.log(error);
       });
-  });
+  }, [props.sectionName]);
+
   return (
     <div style={{ color: "white" }}>
       <ReactMarkdown source={content} />
