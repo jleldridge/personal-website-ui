@@ -5,15 +5,12 @@ import axios from "axios";
 import config from "../config.json";
 import { storeToken, clearToken, storeHomeContent } from "../redux/actions";
 import AuthedRoute from "../components/AuthedRoute";
-import { State, HomeContent } from "../types";
+import { State } from "../types";
 
 type Props = {
-  storeHomeContent: (homeContent: HomeContent) => void;
+  storeHomeContent: (homeContent: string) => void;
   storeToken: (token: string) => void;
   clearToken: () => void;
-  homeSummary: string;
-  homeContact: string;
-  homeLinkedInURL: string;
   token: string;
   match: { url: string; path: string };
 };
@@ -21,9 +18,6 @@ type Props = {
 type AdminState = {
   username: string;
   password: string;
-  homeSummary: string;
-  homeContact: string;
-  homeLinkedInURL: string;
 };
 
 class Admin extends Component<Props, AdminState> {
@@ -32,43 +26,20 @@ class Admin extends Component<Props, AdminState> {
     this.state = {
       username: "",
       password: "",
-      homeSummary: "",
-      homeContact: "",
-      homeLinkedInURL: "",
     };
 
     this.handleUsernameChanged = this.handleUsernameChanged.bind(this);
     this.handlePasswordChanged = this.handlePasswordChanged.bind(this);
-    this.handleHomeSummaryChanged = this.handleHomeSummaryChanged.bind(this);
-    this.handleHomeContactChanged = this.handleHomeContactChanged.bind(this);
-    this.handleHomeLinkedInURLChanged = this.handleHomeLinkedInURLChanged.bind(
-      this
-    );
 
     this.handleLogin = this.handleLogin.bind(this);
-    this.handleUpdateHome = this.handleUpdateHome.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentDidMount() {
-    const {
-      storeHomeContent,
-      homeSummary,
-      homeContact,
-      homeLinkedInURL,
-    } = this.props;
+    const { storeHomeContent } = this.props;
     const axiosConfig = {
       headers: { Authorization: `Bearer ${this.props.token}` },
     };
-    axios
-      .get(config.API_SERVER_URL + "/content/home", axiosConfig)
-      .then((response) => {
-        storeHomeContent(response.data);
-        this.setState({ homeSummary, homeContact, homeLinkedInURL });
-      })
-      .catch((error) => {
-        this.props.clearToken();
-        console.log(error);
-      });
   }
 
   handleUsernameChanged(event: React.ChangeEvent<HTMLInputElement>) {
@@ -77,18 +48,6 @@ class Admin extends Component<Props, AdminState> {
 
   handlePasswordChanged(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ password: event.target.value });
-  }
-
-  handleHomeSummaryChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ homeSummary: event.target.value });
-  }
-
-  handleHomeContactChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ homeContact: event.target.value });
-  }
-
-  handleHomeLinkedInURLChanged(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ homeLinkedInURL: event.target.value });
   }
 
   handleLogin(event: React.FormEvent<HTMLFormElement>) {
@@ -107,21 +66,13 @@ class Admin extends Component<Props, AdminState> {
     event.preventDefault();
   }
 
-  handleUpdateHome(event: React.FormEvent<HTMLFormElement>) {
+  handleUpdate(event: React.FormEvent<HTMLFormElement>) {
     const { clearToken } = this.props;
     const axiosConfig = {
       headers: { Authorization: `Bearer ${this.props.token}` },
     };
     axios
-      .post(
-        config.API_SERVER_URL + "/content/home",
-        {
-          summary: this.state.homeSummary,
-          contact: this.state.homeContact,
-          linkedInURL: this.state.homeLinkedInURL,
-        },
-        axiosConfig
-      )
+      .post(config.API_SERVER_URL + "/admin/update", {}, axiosConfig)
       .then(function (response) {})
       .catch(function (error) {
         console.log(error.response);
@@ -138,17 +89,12 @@ class Admin extends Component<Props, AdminState> {
     return (
       <Switch>
         <AuthedRoute exact path={`${path}`} redirect={loginRedirect}>
-          <div>
-            <Link to={`${path}/home`}>Home</Link>
-          </div>
-          <div>
-            <Link to={`${path}/home`}>Home</Link>
-          </div>
-          <div>
-            <Link to={`${path}/home`}>Home</Link>
-          </div>
-          <div>
-            <Link to={`${path}/home`}>Home</Link>
+          <div className="jumbotron jumbotron-fluid bg-dark mt-3 pl-5 pr-5 shadow-sm rounded">
+            <form onSubmit={this.handleUpdate}>
+              <div>
+                <input type="submit" value="Update" />
+              </div>
+            </form>
           </div>
         </AuthedRoute>
         <Route path={`${path}/login`}>
@@ -178,48 +124,6 @@ class Admin extends Component<Props, AdminState> {
             </form>
           )}
         </Route>
-        <AuthedRoute path={`${path}/home`} redirect={loginRedirect}>
-          <div className="jumbotron jumbotron-fluid bg-dark mt-3 pl-5 pr-5 shadow-sm rounded">
-            <form onSubmit={this.handleUpdateHome}>
-              <div>
-                <label className="text-secondary mb-0">Summary:</label>
-                <div>
-                  <textarea
-                    data-type="text"
-                    value={this.state.homeSummary}
-                    onChange={this.handleHomeSummaryChanged}
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-secondary mb-0">Contact:</label>
-                <div>
-                  <textarea
-                    data-type="text"
-                    value={this.state.homeContact}
-                    onChange={this.handleHomeContactChanged}
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-secondary mb-0">LinkedIn URL</label>
-                <div>
-                  <textarea
-                    data-type="text"
-                    value={this.state.homeLinkedInURL}
-                    onChange={this.handleHomeLinkedInURLChanged}
-                  />
-                </div>
-              </div>
-              <div>
-                <input type="submit" value="Update" />
-              </div>
-            </form>
-            <div>
-              <Link to={`${path}`}>Back</Link>
-            </div>
-          </div>
-        </AuthedRoute>
       </Switch>
     );
   }
@@ -228,9 +132,7 @@ class Admin extends Component<Props, AdminState> {
 const mapStateToProps = (state: State) => {
   const { homeContent } = state;
   return {
-    homeSummary: homeContent && homeContent.summary,
-    homeContact: homeContent && homeContent.contact,
-    homeLinkedInURL: homeContent && homeContent.linkedInURL,
+    homeContent,
     token: state.token,
   };
 };

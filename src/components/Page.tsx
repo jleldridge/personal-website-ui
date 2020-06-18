@@ -1,18 +1,15 @@
 import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
 
 type Props = {
-  title: string;
+  content: string;
 };
 
-class Page extends Component<Props> {
-  render() {
-    return (
-      <div className="jumbotron jumbotron-fluid bg-light mt-3 pl-5 pr-5 shadow-sm rounded">
-        <h1 className="display-5 text-info">{this.props.title}</h1>
-        {this.props.children}
-      </div>
-    );
-  }
+export default function Page(props: Props) {
+  console.log(props);
+  return (
+    <div style={{ color: "white" }}>
+      <ReactMarkdown source={props.content} />
+    </div>
+  );
 }
-
-export default Page;
