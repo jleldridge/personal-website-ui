@@ -5,11 +5,7 @@ import $ from "jquery";
 import SmoothScrollAnchor from "./components/SmoothScrollAnchor";
 
 import myPicture from "./assets/me.jpg";
-import Home from "./pages/Home";
-import Skills from "./pages/Skills";
-import Experience from "./pages/Experience";
-import Education from "./pages/Education";
-import Projects from "./pages/Projects";
+import Section from "./components/Section";
 import Admin from "./pages/Admin";
 
 class App extends Component {
@@ -98,19 +94,19 @@ class App extends Component {
               >
                 <div className="carousel-inner">
                   <div id="home" className="carousel-item active pr-5 pl-5">
-                    <Home />
+                    <Section sectionName="home" />
                   </div>
                   <div id="skills" className="carousel-item pr-5 pl-5">
-                    <Skills />
+                    <Section sectionName="skills" />
                   </div>
                   <div id="experience" className="carousel-item pr-5 pl-5">
-                    <Experience />
+                    <Section sectionName="experience" />
                   </div>
                   <div id="education" className="carousel-item pr-5 pl-5">
-                    <Education />
+                    <Section sectionName="education" />
                   </div>
                   <div id="projects" className="carousel-item pr-5 pl-5">
-                    <Projects />
+                    <Section sectionName="projects" />
                   </div>
                 </div>
               </div>
