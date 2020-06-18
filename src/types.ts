@@ -1,6 +1,10 @@
 export type State = {
-  homeContent: string;
-  token: string;
+  content?: Content;
+  token?: string;
+};
+
+export type Content = {
+  [name: string]: string;
 };
 
 export type Link = {

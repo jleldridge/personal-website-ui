@@ -3,15 +3,14 @@ import { Switch, Route, Link, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 import config from "../config.json";
-import { storeToken, clearToken, storeHomeContent } from "../redux/actions";
+import { storeToken, clearToken } from "../redux/actions";
 import AuthedRoute from "../components/AuthedRoute";
 import { State } from "../types";
 
 type Props = {
-  storeHomeContent: (homeContent: string) => void;
   storeToken: (token: string) => void;
   clearToken: () => void;
-  token: string;
+  token?: string;
   match: { url: string; path: string };
 };
 
@@ -36,7 +35,6 @@ class Admin extends Component<Props, AdminState> {
   }
 
   componentDidMount() {
-    const { storeHomeContent } = this.props;
     const axiosConfig = {
       headers: { Authorization: `Bearer ${this.props.token}` },
     };
@@ -130,12 +128,10 @@ class Admin extends Component<Props, AdminState> {
 }
 
 const mapStateToProps = (state: State) => {
-  const { homeContent } = state;
   return {
-    homeContent,
     token: state.token,
   };
 };
-const mapDispatchToProps = { storeToken, clearToken, storeHomeContent };
+const mapDispatchToProps = { storeToken, clearToken };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin));

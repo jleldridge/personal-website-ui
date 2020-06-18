@@ -7,7 +7,8 @@ export const clearToken = () => ({
   type: "CLEAR_TOKEN",
 });
 
-export const storeHomeContent = (homeContent: string) => ({
-  type: "HOME_CONTENT",
-  homeContent,
+export const storeContent = (section: string, content: string) => ({
+  type: "CONTENT",
+  section,
+  content,
 });
