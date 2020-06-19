@@ -10,6 +10,8 @@ import { State } from "../types";
 export default function Admin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [updatePending, setUpdatePending] = useState(false);
+
   const token = useSelector((state: State) => state.token);
   const match = useRouteMatch();
   const dispatch = useDispatch();
@@ -51,9 +53,12 @@ export default function Admin() {
       const axiosConfig = {
         headers: { Authorization: `Bearer ${token}` },
       };
+      setUpdatePending(true);
       axios
         .post(config.API_SERVER_URL + "/admin/update", {}, axiosConfig)
-        .then(function (response) {})
+        .then(function (response) {
+          setUpdatePending(false);
+        })
         .catch(function (error) {
           console.log(error.response);
           if (error.response.status >= 400 && error.response.status < 500) {
@@ -62,7 +67,7 @@ export default function Admin() {
         });
       event.preventDefault();
     },
-    [dispatch, token]
+    [dispatch, token, setUpdatePending]
   );
 
   const { path, url } = match;
@@ -73,7 +78,11 @@ export default function Admin() {
         <div className="jumbotron jumbotron-fluid bg-dark mt-3 pl-5 pr-5 shadow-sm rounded">
           <form onSubmit={handleUpdate}>
             <div>
-              <input type="submit" value="Update" />
+              <input
+                type="submit"
+                value={updatePending ? "Updating..." : "Update"}
+                disabled={updatePending}
+              />
             </div>
           </form>
         </div>
