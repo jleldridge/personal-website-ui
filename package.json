@@ -21,8 +21,6 @@
   },
   "scripts": {
     "start-ui": "npm run build && npx serve -s build",
-    "start-server": "npm run build-server && node ./server-build/server.js",
-    "build-server": "tsc --esModuleInterop --resolveJsonModule ./server/server.ts --outDir ./server-build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
