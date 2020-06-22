@@ -4,11 +4,15 @@
   color: $light;
 }
 
-h1,
+.mdcontainer h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   color: $info;
+}
+
+.mdcontainer img {
+  width: 50%;
 }
