@@ -14,7 +14,6 @@ type Props = {
 
 class AuthedRoute extends Component<Props> {
   render() {
-    console.log(this.props.token);
     return this.props.token ? (
       <Route {...this.props}>{this.props.children}</Route>
     ) : (
