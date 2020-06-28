@@ -29,7 +29,7 @@ class App extends Component {
               >
                 <img
                   style={{
-                    height: "64px",
+                    height: "50px",
                     float: "left",
                     marginRight: "10px",
                   }}
