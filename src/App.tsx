@@ -4,7 +4,7 @@ import $ from "jquery";
 
 import SmoothScrollAnchor from "./components/SmoothScrollAnchor";
 
-import myPicture from "./assets/me.jpg";
+import myPicture from "./assets/me.png";
 import Section from "./components/Section";
 import Admin from "./pages/Admin";
 
@@ -28,7 +28,11 @@ class App extends Component {
                 style={{ backgroundColor: "#563D7C" }}
               >
                 <img
-                  style={{ height: "50px", float: "left", marginRight: "10px" }}
+                  style={{
+                    height: "64px",
+                    float: "left",
+                    marginRight: "10px",
+                  }}
                   src={myPicture}
                   alt="logo"
                 />
